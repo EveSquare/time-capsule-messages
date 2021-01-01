@@ -178,17 +178,17 @@ def data():
 
 @app.route('/triger')
 def triger():
-    send_url = "http://time-capsule-messages/future/"
+    send_url = "https://time-capsule-messages.herokuapp.com/future/"
 
     date_dbs = where_date_db(now())
 
     if date_dbs != []:
         for row in date_dbs:
             token = row[1]
-            created_date = row[2]
+            created_date = row[2].split('-')
             user_id = row[3]
             message = row[4]
-            send_message(user_id, f"{created_date}のあなたからのメッセージです。 {send_url + token}")
+            send_message(user_id, f"{created_date[0]}年{created_date[1]}月{created_date[2]}日のあなたからのメッセージです。 {send_url + token}")
     
     date_dbs2 = where_date_db2(dt.datetime.now() - dt.timedelta(days=10))
 
@@ -203,7 +203,7 @@ def triger():
 def future(token):
 
     return render_template('index.html',
-                            message=message_data(token)[0]) 
+                            message=message_data(token)[0][0]) 
 
 @app.errorhandler(404)
 def error_handler(error):
