@@ -70,7 +70,8 @@ def error_handler(error):
     return render_template('error.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.getenv("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
     # schedule.every(1).minutes.do(hello)
 
     # while True:
