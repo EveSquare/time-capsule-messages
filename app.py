@@ -32,7 +32,7 @@ handler = WebhookHandler("ec4b4f750316feb4d1984a52cb8d3f37")
 
 @app.route('/')
 def top_page():
-    return render_template('index.html')
+    return render_template('error.html')
 
 def push_db(date:str, content:str, created_datetime:str, user_id:str, status:int):
     conn = sqlite3.connect(path)
@@ -87,7 +87,7 @@ def message_data(token:str):
 
     where_list = []
 
-    for i in c.execute(f'SELECT message FROM stocks WHERE token = "{token}"'):
+    for i in c.execute(f'SELECT message date FROM stocks WHERE token = "{token}"'):
         where_list.append(i)
 
     conn.close()
@@ -174,7 +174,7 @@ def data():
     if date is not None and message is not None and created_datetime is not None and user_id is not None:
         push_db(date, message, created_datetime, user_id, 2)
     
-    return render_template("index.html")
+    return render_template("error.html")
 
 @app.route('/triger')
 def triger():
@@ -197,7 +197,7 @@ def triger():
         for row in date_dbs2:
             delete_db(row[1])
 
-    return render_template('index.html')
+    return render_template('error.html')
 
 @app.route('/future/<token>')
 def future(token):
@@ -209,7 +209,12 @@ def future(token):
     else:
         message = m[0]
 
+    d = m[1].split('-')
+
+    date = f'{d[0]}年{d[1]}月{d[2]}日'
+
     return render_template('index.html',
+                            date=date,
                             message=message) 
 
 @app.errorhandler(404)
