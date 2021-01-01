@@ -90,7 +90,7 @@ def message_data(token:str):
 
     where_list = []
 
-    for i in c.execute(f'SELECT message date FROM stocks WHERE token = "{token}"'):
+    for i in c.execute(f'SELECT message, date FROM stocks WHERE token = "{token}"'):
         where_list.append(i)
 
     conn.close()
