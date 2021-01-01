@@ -144,7 +144,7 @@ def where_date_db(date:str):
 
     where_list = []
 
-    for i in c.execute(f'SELECT date, token, created_datetime, user_id FROM stocks where date = "{date}"'):
+    for i in c.execute(f'SELECT date, token, created_datetime, user_id, message FROM stocks where date = "{date}"'):
         where_list.append(i)
 
     conn.close()
