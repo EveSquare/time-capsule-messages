@@ -1,4 +1,4 @@
-from flask import Flask, request, abort, render_template, redirect
+from flask import Flask, request, abort, render_template, redirect, abort
 import random
 import sqlite3
 import datetime as dt
@@ -202,8 +202,15 @@ def triger():
 @app.route('/future/<token>')
 def future(token):
 
+    m = message_data(token)[0]
+
+    if m == []:
+        abort(404)
+    else:
+        message = m[0]
+
     return render_template('index.html',
-                            message=message_data(token)[0][0]) 
+                            message=message) 
 
 @app.errorhandler(404)
 def error_handler(error):
