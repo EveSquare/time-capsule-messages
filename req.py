@@ -1,6 +1,4 @@
-import requests
-
-url = "https://time-capsule-messages.herokuapp.com/data/?d=2020-12-12&m=今年は今年&c=2021-01-01&u=adagahsaefgw4623fqef"
+import datetime as dt
 
 
-requests.get(url)
+print((dt.datetime.now() + dt.timedelta(days=10)).strftime("%Y-%m-%d"))
