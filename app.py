@@ -2,6 +2,7 @@ from flask import Flask, request, abort, render_template, redirect, abort
 import random
 import sqlite3
 import datetime as dt
+from datetime import timedelta, timezone
 import secrets as se
 import re
 import requests
@@ -22,6 +23,7 @@ import os
 import schedule
 import time
 
+JST = timezone(timedelta(hours=+9), 'JST')
 
 app = Flask(__name__)
 path = "status.db"
@@ -138,7 +140,7 @@ def pattern_math(date):
         return False
 
 def now():
-    return dt.datetime.now().strftime("%Y-%m-%d")
+    return dt.datetime.now(JST).strftime("%Y-%m-%d")
 
 # return :list
 def where_date_db(date:str):
