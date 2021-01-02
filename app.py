@@ -205,12 +205,11 @@ def triger():
 @app.route('/future/<token>')
 def future(token):
 
-    m = message_data(token)[0]
-
-    if m == []:
-        abort(404)
-    else:
+    try:
+        m = message_data(token)[0]
         message = m[0]
+    except:
+        abort(404)
 
     d = m[1].split('-')
 
