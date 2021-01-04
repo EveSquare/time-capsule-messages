@@ -37,7 +37,7 @@ handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
 @app.route('/')
 def top_page():
-    return render_template('error.html')
+    return render_template('top_page.html')
 
 def push_db(date:str, content:str, created_datetime:str, user_id:str, status:int):
     conn = sqlite3.connect(path)
@@ -195,7 +195,7 @@ def triger():
             message = row[4]
             send_message(user_id, f"{created_date[0]}年{created_date[1]}月{created_date[2]}日のあなたからのメッセージです。 {send_url + token}")
     
-    date_dbs2 = where_date_db2(dt.datetime.now() - dt.timedelta(days=10))
+    date_dbs2 = where_date_db2(dt.datetime.now(JST) - dt.timedelta(days=10))
 
 
     if date_dbs2 != []:

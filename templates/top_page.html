@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeCapsule</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e66bc910e2.js" crossorigin="anonymous"></script>
+    <style>
+        .sc_img{
+            text-align: center
+        }
+        img{
+            width: 90%;
+            border-radius: 12px;
+        }
+        #message{
+            padding: 24px;
+            margin-top: 50%;
+        }
+        @media (min-width: 800px){
+            #message{
+                padding: 0 100px;
+                margin-top: 20%;
+            }
+        }
+        @media (min-width: 1400px){
+            #message{
+                padding: 0 400px;
+                margin-top: 20%;
+            }
+            img{
+                width: 40%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <h5 class="text-white h4">TimeCapsule</h5>
+          <span class="text-muted">MAbA Production</span>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+    </div>
+    <div class="jumbotron jumbotron">
+        <div class="container">
+          <h1 class="display-5">PastMessagesへようこそ</h1>
+          <p class="lead">このページではPastMessagesの使い方を説明します。</p>
+          <br>
+          <p style="text-align: center;"><i class="fa fa-angle-double-down" aria-hidden="true"></i></p>
+        </div>
+    </div>
+    <div class="text-center">
+        <div class="alert alert-light" role="alert">
+            <h4>Step1. </h4>
+            <h6>PasatMessagesのアカウントに自分に送りたいメッセージを送信！</h6>
+        </div>
+    </div>
+    <p class="sc_img">
+        <img src="{{url_for('static', filename='sc_01_1.png')}}" alt="01">
+        
+    </p>
+    <div class="text-center">
+        <div class="alert alert-light" role="alert">
+            <h4>Step2. </h4>
+            <h6>送信したメッセージの内容が合っているか確してYesかNoをタップ</h6>
+        </div>
+    </div>
+    <p class="sc_img">
+        <img src="{{url_for('static', filename='sc_01.png')}}" alt="01">
+        
+    </p>
+    <div class="text-center">
+        <div class="alert alert-light" role="alert">
+            <h4>Step3. </h4>
+            <h6>次に、先程決めたメッセージをいつ送るかを設定します。</h6>
+            <h6>先程と同様にYesかNoをタップして決定します</h6>
+        </div>
+    </div>
+    <p class="sc_img">
+        <img src="{{url_for('static', filename='sc_02.png')}}" alt="02">
+        
+    </p>
+    <div class="text-center">
+    <div class="alert alert-light" role="alert">
+        <h6>不備がなければ正常に登録が出来ています！</h6>
+        <h6>指定した日付にメッセージが届くのを楽しみに待ちましょう！</h6>
+    </div>
+    </div>
+    <br><br>
+    <small>
+        <div class="alert alert-light" role="alert">
+            <p>
+                利用するにあたって
+                <br><br>
+                情報漏洩対策の為、住所やパスワードなどの個人情報などは載せないようにしましょう。
+                <br>
+                このサービスは予告なく終了する可能性があります。その際メッセージなどのデータが消えてしまう可能性もあります。
+                <br>
+                したがって、消えてしまっては困る内容は控えていただきますようお願い致します。
+            </p>
+        </div>
+    </small>
+    <br><br>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <div class="navbar-brand">
+            <img src="{{url_for('static', filename='evesquare-logo.jpg')}}" style="height: 24px; border-radius: 50%;">
+            <small style="font-weight: 1;">EveSquare</small>
+        </div>
+    </nav>
+</body>
+</html>
